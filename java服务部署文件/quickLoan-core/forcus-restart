@@ -1,0 +1,4 @@
+#!/bin/sh
+kill -9 $(ps -ef | grep java |grep quickLoan-core | grep -v grep | awk '{print $2}')
+sh start
+

@@ -1,0 +1,10 @@
+#!/bin/sh
+service_path=/usr/local/software/quickLoan-core
+service_name=quickLoan-core.service
+
+systemctl disable $service_name
+systemctl stop $service_name
+
+
+rm -rf /etc/systemd/system/$service_name
+

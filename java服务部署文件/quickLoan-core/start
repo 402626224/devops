@@ -1,0 +1,5 @@
+#!/bin/sh
+service_name=quickLoan-core.service
+
+systemctl start $service_name
+

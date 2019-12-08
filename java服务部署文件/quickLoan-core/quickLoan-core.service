@@ -1,0 +1,13 @@
+[Unit]
+Description=quickLoan-core service
+After=syslog.target
+
+[Service]
+EnvironmentFile=/usr/local/software/td-config/enviroments
+Type=simple
+ExecStart=/usr/bin/java -Duser.timezone=GMT+08 -Xms512m -Xmx512m -XX:+UseG1GC -verbose:gc -Xloggc:/data/logs/gc/quickLoan-core_gc  -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=100M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/data/logs  -jar /usr/local/software/quickLoan-core/quickLoan-core-1.0-SNAPSHOT.jar --spring.config.location=/usr/local/software/quickLoan-core/override.properties
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
