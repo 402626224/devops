@@ -1,0 +1,12 @@
+[Unit]
+Description=shop pms manager service
+After=syslog.target
+
+[Service]
+Type=simple
+ExecStart=/usr/jdk/bin/java -Duser.timezone=GMT+08 -Xms512m -Xmx512m -XX:+UseG1GC -verbose:gc -Xloggc:/data/logs/gc/quickLoan-core_gc  -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=100M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/data/logs  -jar /data/java/shop-pms-manager/pms-manager.jar --spring.config.location=/etc/icconfig/shop-pms-manager/application.properties
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
