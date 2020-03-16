@@ -1,0 +1,2 @@
+# 1.netstat  -anp  |grep   端口号
+netstat  -anp  |grep  3306
